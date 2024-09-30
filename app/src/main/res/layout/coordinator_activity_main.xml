@@ -1,0 +1,48 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinatorLayout"
+    tools:context="com.example.tabswithfragmentstateadapter.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:theme="@style/Theme.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorRed"
+            app:popupTheme="@style/Theme.PopupOverlay"
+            android:id="@+id/toolbar" />
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRed"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabTextAppearance="@style/Theme.TabStyle"
+            app:tabSelectedTextColor="@color/colorWhite"
+            app:tabIndicator="@color/colorWhite"
+            app:tabIndicatorHeight="3dp"
+            android:visibility="gone"
+            android:id="@+id/tabLayout" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/activity_main"
+        android:id="@+id/layout" />
+
+    <!--ViewPager2 supports vertical paging(fragments swipe up & down) in addition to traditional/default horizontal paging(fragments swipe left & right). Use the 'orientation' attribute to set this.-->
+    <!--ViewPager2 supports right-to-left(RTL) paging. RTL paging is enabled automatically where appropriate based on locale, but you can also manually enable RTL paging for a ViewPager2 element by setting its 'layoutDirection' attribute. LTR is the default. This attribute only works if the ViewPager2 'orientation' is horizontal.-->
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layoutDirection="ltr"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:visibility="invisible"
+        android:id="@+id/viewPager2" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
